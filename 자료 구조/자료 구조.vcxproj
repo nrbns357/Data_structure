@@ -142,6 +142,7 @@
     <ClCompile Include="연결리스트.c" />
     <ClCompile Include="연결리스트.h" />
     <ClCompile Include="연결리스트정렬메인.c" />
+    <ClCompile Include="자료구조.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

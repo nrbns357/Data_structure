@@ -24,5 +24,8 @@
     <ClCompile Include="연결리스트정렬메인.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="자료구조.c">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
