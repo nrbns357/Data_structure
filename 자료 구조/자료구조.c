@@ -36,3 +36,49 @@
 //	printf("n1=%d, n2=%d\n", n1, n2);
 //}
 //
+
+//8월 25일
+
+///*선택 정렬:
+//	
+//	n개의 정수를 입력 받아 오름 차순으로 정렬하여 출력하시오.
+//	5
+//	3 6 1 3 4
+//	1 3 3 4 6
+//
+//*/
+//
+//void input(int a[], int cnt) {
+//	for (int i = 0; i < cnt; i++)
+//		scanf("%d", &a[i]);
+//}
+//
+//void output(int a[], int cnt) {
+//	for (int i = 0; i < cnt; i++)
+//		printf("%d ", a[i]);
+//}
+//
+//void swap(int* x, int* y) {
+//	int t = *x;
+//	*x = *y;
+//	*y = t;
+//}
+//
+//void selectionSort(int a[], int cnt) {
+//	for (int i = 0; i < cnt - 1; i++) {
+//		for (int j = i + 1; j < cnt; j++) {
+//			if (a[i] > a[j]) {
+//				swap(&a[i], &a[j]);
+//			}
+//		}
+//	}
+//}
+//
+//int main() {
+//	int n;
+//	int a[100];
+//	scanf("%d",&n);
+//	input(a, n);
+//	selectionSort(a, n);
+//	output(a, n);
+//}
