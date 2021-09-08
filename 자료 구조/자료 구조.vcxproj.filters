@@ -27,5 +27,8 @@
     <ClCompile Include="자료구조.c">
       <Filter>헤더 파일</Filter>
     </ClCompile>
+    <ClCompile Include="버블정렬.c">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
