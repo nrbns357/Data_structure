@@ -107,9 +107,34 @@
 
 //Queue 구현
 int queue[5];
+
+
 void menuf() { //메뉴 함수
 	printf("\n1.큐에 삽입 2.큐에서 삭제\n");
 	printf("3.내용 보기 4.종료\n");
+}
+
+void Enqueue(int* back, int item) { //큐에 삽입
+	if (*back == 4) { //현재 큐의 사이즈 4
+		printf("큐가 가득함\n");
+		return;
+	}
+	queue[++ * back] = item;
+}
+
+int Dequeue(int* front, int back) {
+	if (*front == back) {
+		return -1; // -1이면 큐가 비었다고 생각
+		//보통 0이 리턴되면 정상적인 종료
+	}
+	return queue[++ * front];
+}
+
+void Display(int front, int back) {
+	if (front == back)
+		printf("큐가 비었음\n");
+	for (int i = front; i < back+1;i++)
+		printf("%4d", queue[i]);
 }
 
 int main() {
@@ -143,8 +168,8 @@ int main() {
 
 
 		case 3:
-			DIsplay(front, back); //과제
-			//큐의 네용을 출력해 보시오
+			Display(front, back); //과제
+			//큐의 내용을 출력해 보시오
 			break;
 
 

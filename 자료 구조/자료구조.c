@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define <stdlib.h> //malloc, free 함수가 선언된 헤더 파일
+ //malloc, free 함수가 선언된 헤더 파일
 
 // 8월 24일
 //int main() {
