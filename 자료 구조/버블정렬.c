@@ -329,5 +329,16 @@ int main() {
 	printf("===미로 탈출 경로 찾기 게임===\n");
 	Si = 1, Sj = 1; //출발점 m배열의 1행 1열 위치
 	Ei = 7, Ej = 7; //도착점 m배열의 7행 7열 위치
-	
+	if (visit(Si, Sj) == 0)
+		printf("미로의 출구를 찾을 수 없음\n");
+	else
+		printf("미로의 모든 경로를 찾았음\n");
+	return 0;
+}
+int visit(int i, int j) {
+	static int path = 1;//찾은 경로의 수
+	m[i][j] = 1;//배열에 0이 있다면 아직 가지 않은 길이란 의미
+	//지나간 길에는 1을 저장해 둔다.
+
+}
 }
