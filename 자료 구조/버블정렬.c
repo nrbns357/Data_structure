@@ -103,27 +103,6 @@
 //}
 
 
-#define SIZE 5
-void pop();
-void push(int);
-int stack[SIZE];
-int top = -1;
-
-void push(int val) {
-	if (top == SIZE - 1) {
-		printf("스택이 가득참");
-	}
-	else {
-		stack[++top] = val;
-	}
-}
-
-void pop() {
-	if (top == -1)
-		printf("스택이 비었음");
-	else
-		printf("%d가 삭제됨", stack[top--]);
-}
 
 
 
@@ -203,3 +182,20 @@ void pop() {
 //		}
 //	}
 //}
+
+
+
+#pragma warning(disable:4996)
+#include<stdio.h>
+#include<stdlib.h>
+//이분 탐색, 이진 탐색 : 정렬된 배열속 데이터 찾기
+//1000개의 데이터에서 무조건 10번 만에 데이터 찾거나 없다고 return 해줄수 있다
+int arr[100] = { 5,7,33,66,67,88,99,120,134,156,201 };
+int n, k;//k는 내가 찾을 숫자
+int count = 0;
+
+int binarysearch(int s, int e) {//start end
+	while (s <= e) {
+
+	}
+}
