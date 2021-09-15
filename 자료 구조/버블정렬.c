@@ -185,34 +185,124 @@
 
 
 
-#pragma warning(disable:4996)
+//#pragma warning(disable:4996)
+//#include<stdio.h>
+//#include<stdlib.h>
+////이분 탐색, 이진 탐색 : 정렬된 배열속 데이터 찾기
+////1000개의 데이터에서 무조건 10번 만에 데이터 찾거나 없다고 return 해줄수 있다
+//int arr[100] = { 5,7,33,66,67,88,99,120,134,156,201 };
+//int n, k;//k는 내가 찾을 숫자
+//int count = 0;
+//
+//int binarysearch(int s, int e) {//start end
+//	while (s <= e) {
+//		count++;
+//		int m = (s+e)/2; //m은 middle
+//		if (arr[m] == k)
+//			return count; //찾은 배열의 인덱스(위치)
+//		if (arr[m] > k)
+//			e = m - 1;
+//		else
+//			s = m + 1;
+//
+//
+//	}
+//	return -1; //결국 숫자를 못찾음
+//
+//
+//}
+//
+//int main() {
+//	printf("찾을 숫자 입력 : ");
+//	scanf("%d", &k); //k=66;
+//	printf("%d번만에 발견\n", binarysearch(0, 10));
+//	return 0;
+//}
+
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<stdlib.h>
-//이분 탐색, 이진 탐색 : 정렬된 배열속 데이터 찾기
-//1000개의 데이터에서 무조건 10번 만에 데이터 찾거나 없다고 return 해줄수 있다
-int arr[100] = { 5,7,33,66,67,88,99,120,134,156,201 };
-int n, k;//k는 내가 찾을 숫자
-int count = 0;
-
-int binarysearch(int s, int e) {//start end
-	while (s <= e) {
-		count++;
-		int m = (s+e)/2; //m은 middle
-		if (arr[m] == k)
-			return m; //찾은 배열의 인덱스(위치)
-		if (arr[m] > k)
-			e = m - 1;
-		else
-			s = m + 1;
-	}
-	return -1; //결국 숫자를 못찾음
-
-
+#include<windows.h>
+int map[9][9] = {
+{2,2,2,2,2,2,2,2,2},
+{2,0,0,0,0,0,0,0,2},
+{2,0,2,2,0,2,2,0,2},
+{2,0,2,0,0,2,0,0,2},
+{2,0,2,0,2,0,2,0,2},
+{2,0,0,0,0,0,2,0,2},
+{2,2,0,2,2,0,2,2,2},
+{2,0,0,0,0,0,0,0,2},
+{2,2,2,2,2,2,2,2,2}
+};
+int facing = 0;
+const COORD end = { 7,7 };
+COORD back = { 1,1 };
+COORD player = { 1,1 };
+void gotoxy(int x, int y) {
+	COORD pos = { x * 2,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
-
 int main() {
-	printf("찾을 숫자 입력 : ");
-	scanf("%d", &k); //k=66;
-	printf("%d번째에서 발견\n", binarysearch(0, 10));
-	return 0;
+	printf("딜레이를 입력해주세요 (밀리초) : ");
+	int speed; scanf("%d", &speed);
+	system("cls");
+	gotoxy(0, 0);
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++)
+			printf("%s", map[i][j] ? "■" : "□");
+		putchar(10);
+	}
+	gotoxy(player.X, player.Y);
+	printf("★");
+	while (end.X != player.X || end.Y != player.Y) {
+		Sleep(speed);
+		facing += 3;
+		facing %= 4;
+		while (player.X == back.X && player.Y == back.Y) {
+			switch (facing) {
+			case 0:
+				if (map[player.Y - 1][player.X]) {
+					facing++;
+				}
+				else {
+					player.Y--;
+				}
+				break;
+			case 1:
+				if (map[player.Y][player.X + 1]) {
+					facing++;
+				}
+				else {
+					player.X++;
+				}
+				break;
+			case 2:
+				if (map[player.Y + 1][player.X]) {
+					facing++;
+				}
+				else {
+					player.Y++;
+				}
+				break;
+			case 3:
+				if (map[player.Y][player.X - 1]) {
+					facing = 0;
+				}
+				else {
+					player.X--;
+				}
+				break;
+			}
+		}
+		gotoxy(player.X, player.Y);
+		printf("★");
+		gotoxy(back.X, back.Y);
+		printf("□");
+		gotoxy(0, 10);
+		printf("goal : %d %d\n", end.X, end.Y);
+		printf("player : %d %d\n", player.X, player.Y);
+		printf("last pos : %d %d\n", back.X, back.Y);
+		printf("facing : %s", facing == 0 ? "up   " : facing == 1 ? "right" : facing == 2 ? "down " : "left ");
+		back.X = player.X;
+		back.Y = player.Y;
+	}
 }
