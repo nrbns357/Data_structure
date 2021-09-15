@@ -196,6 +196,23 @@ int count = 0;
 
 int binarysearch(int s, int e) {//start end
 	while (s <= e) {
-
+		count++;
+		int m = (s+e)/2; //m은 middle
+		if (arr[m] == k)
+			return m; //찾은 배열의 인덱스(위치)
+		if (arr[m] > k)
+			e = m - 1;
+		else
+			s = m + 1;
 	}
+	return -1; //결국 숫자를 못찾음
+
+
+}
+
+int main() {
+	printf("찾을 숫자 입력 : ");
+	scanf("%d", &k); //k=66;
+	printf("%d번째에서 발견\n", binarysearch(0, 10));
+	return 0;
 }
