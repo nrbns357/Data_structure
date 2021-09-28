@@ -27,7 +27,10 @@
     <ClCompile Include="자료구조.c">
       <Filter>헤더 파일</Filter>
     </ClCompile>
-    <ClCompile Include="버블정렬.c">
+    <ClCompile Include="탐색 미로 2차원 배열.c">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="파스칼의 삼각형.c">
       <Filter>헤더 파일</Filter>
     </ClCompile>
   </ItemGroup>

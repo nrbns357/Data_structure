@@ -219,127 +219,138 @@
 //	return 0;
 //}
 
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<windows.h>
-int map[9][9] = {
-{2,2,2,2,2,2,2,2,2},
-{2,0,0,0,0,0,0,0,2},
-{2,0,2,2,0,2,2,0,2},
-{2,0,2,0,0,2,0,0,2},
-{2,0,2,0,2,0,2,0,2},
-{2,0,0,0,0,0,2,0,2},
-{2,2,0,2,2,0,2,2,2},
-{2,0,0,0,0,0,0,0,2},
-{2,2,2,2,2,2,2,2,2}
-};
-int facing = 0;
-const COORD end = { 7,7 };
-COORD back = { 1,1 };
-COORD player = { 1,1 };
-void gotoxy(int x, int y) {
-	COORD pos = { x * 2,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-}
-int main() {
-	printf("딜레이를 입력해주세요 (밀리초) : ");
-	int speed; scanf("%d", &speed);
-	system("cls");
-	gotoxy(0, 0);
-	for (int i = 0; i < 9; i++) {
-		for (int j = 0; j < 9; j++)
-			printf("%s", map[i][j] ? "■" : "□");
-		putchar(10);
-	}
-	gotoxy(player.X, player.Y);
-	printf("★");
-	while (end.X != player.X || end.Y != player.Y) {
-		Sleep(speed);
-		facing += 3;
-		facing %= 4;
-		while (player.X == back.X && player.Y == back.Y) {
-			switch (facing) {
-			case 0:
-				if (map[player.Y - 1][player.X]) {
-					facing++;
-				}
-				else {
-					player.Y--;
-				}
-				break;
-			case 1:
-				if (map[player.Y][player.X + 1]) {
-					facing++;
-				}
-				else {
-					player.X++;
-				}
-				break;
-			case 2:
-				if (map[player.Y + 1][player.X]) {
-					facing++;
-				}
-				else {
-					player.Y++;
-				}
-				break;
-			case 3:
-				if (map[player.Y][player.X - 1]) {
-					facing = 0;
-				}
-				else {
-					player.X--;
-				}
-				break;
-			}
-		}
-		gotoxy(player.X, player.Y);
-		printf("★");
-		gotoxy(back.X, back.Y);
-		printf("□");
-		gotoxy(0, 10);
-		printf("goal : %d %d\n", end.X, end.Y);
-		printf("player : %d %d\n", player.X, player.Y);
-		printf("last pos : %d %d\n", back.X, back.Y);
-		printf("facing : %s", facing == 0 ? "up   " : facing == 1 ? "right" : facing == 2 ? "down " : "left ");
-		back.X = player.X;
-		back.Y = player.Y;
-	}
-}
-
-#include <stdio.h>
-int m[9][9] = { //maze
-			 {2,2,2,2,2,2,2,2,2},
-			 {2,0,0,0,0,0,0,0,2},
-			 {2,0,2,2,0,2,2,0,2},
-			 {2,0,2,0,0,2,0,0,2},
-			 {2,0,2,0,2,0,2,0,2},
-			 {2,0,0,0,0,0,2,0,2},
-			 {2,2,0,2,2,0,2,2,2},
-			 {2,0,0,0,0,0,0,0,2},
-			 {2,2,2,2,2,2,2,2,2} };
-int Si, Sj, Ei, Ej; //Start 출발, end 도착 지점 표시
-int success, idx, path_i[100], path_j[100];
-//S : start,출발점 E: End, 도착점, idx 경로 배열 인텍스
-//Path_i, Path_j : 지나간 길을 저장함(i는 행, j는 열)
-int visit(int, int);
-int main() {
-	int top = 0; //stack의 top 변수를 0으로 초기화
-	success = 0;//미로 탈출 여부
-	printf("===미로 탈출 경로 찾기 게임===\n");
-	Si = 1, Sj = 1; //출발점 m배열의 1행 1열 위치
-	Ei = 7, Ej = 7; //도착점 m배열의 7행 7열 위치
-	if (visit(Si, Sj) == 0)
-		printf("미로의 출구를 찾을 수 없음\n");
-	else
-		printf("미로의 모든 경로를 찾았음\n");
-	return 0;
-}
-int visit(int i, int j) {
-	static int path = 1;//찾은 경로의 수
-	m[i][j] = 1;//배열에 0이 있다면 아직 가지 않은 길이란 의미
-	//지나간 길에는 1을 저장해 둔다.
-
-}
-
-
+//#define _CRT_SECURE_NO_WARNINGS
+//#include<stdio.h>
+//#include<windows.h>
+//int map[9][9] = {
+//{2,2,2,2,2,2,2,2,2},
+//{2,0,0,0,0,0,0,0,2},
+//{2,0,2,2,0,2,2,0,2},
+//{2,0,2,0,0,2,0,0,2},
+//{2,0,2,0,2,0,2,0,2},
+//{2,0,0,0,0,0,2,0,2},
+//{2,2,0,2,2,0,2,2,2},
+//{2,0,0,0,0,0,0,0,2},
+//{2,2,2,2,2,2,2,2,2}
+//};
+//int facing = 0;
+//const COORD end = { 7,7 };
+//COORD back = { 1,1 };
+//COORD player = { 1,1 };
+//void gotoxy(int x, int y) {
+//	COORD pos = { x * 2,y };
+//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+//}
+//int main() {
+//	printf("딜레이를 입력해주세요 (밀리초) : ");
+//	int speed; scanf("%d", &speed);
+//	system("cls");
+//	gotoxy(0, 0);
+//	for (int i = 0; i < 9; i++) {
+//		for (int j = 0; j < 9; j++)
+//			printf("%s", map[i][j] ? "■" : "□");
+//		putchar(10);
+//	}
+//	gotoxy(player.X, player.Y);
+//	printf("★");
+//	while (end.X != player.X || end.Y != player.Y) {
+//		Sleep(speed);
+//		facing += 3;
+//		facing %= 4;
+//		while (player.X == back.X && player.Y == back.Y) {
+//			switch (facing) {
+//			case 0:
+//				if (map[player.Y - 1][player.X]) {
+//					facing++;
+//				}
+//				else {
+//					player.Y--;
+//				}
+//				break;
+//			case 1:
+//				if (map[player.Y][player.X + 1]) {
+//					facing++;
+//				}
+//				else {
+//					player.X++;
+//				}
+//				break;
+//			case 2:
+//				if (map[player.Y + 1][player.X]) {
+//					facing++;
+//				}
+//				else {
+//					player.Y++;
+//				}
+//				break;
+//			case 3:
+//				if (map[player.Y][player.X - 1]) {
+//					facing = 0;
+//				}
+//				else {
+//					player.X--;
+//				}
+//				break;
+//			}
+//		}
+//		gotoxy(player.X, player.Y);
+//		printf("★");
+//		gotoxy(back.X, back.Y);
+//		printf("□");
+//		gotoxy(0, 10);
+//		printf("goal : %d %d\n", end.X, end.Y);
+//		printf("player : %d %d\n", player.X, player.Y);
+//		printf("last pos : %d %d\n", back.X, back.Y);
+//		printf("facing : %s", facing == 0 ? "up   " : facing == 1 ? "right" : facing == 2 ? "down " : "left ");
+//		back.X = player.X;
+//		back.Y = player.Y;
+//	}
+//}
+//
+//#include <stdio.h>
+//int m[9][9] = { //maze
+//			 {2,2,2,2,2,2,2,2,2},
+//			 {2,0,0,0,0,0,0,0,2},
+//			 {2,0,2,2,0,2,2,0,2},
+//			 {2,0,2,0,0,2,0,0,2},
+//			 {2,0,2,0,2,0,2,0,2},
+//			 {2,0,0,0,0,0,2,0,2},
+//			 {2,2,0,2,2,0,2,2,2},
+//			 {2,0,0,0,0,0,0,0,2},
+//			 {2,2,2,2,2,2,2,2,2} };
+//int Si, Sj, Ei, Ej; //Start 출발, end 도착 지점 표시
+//int success, idx, path_i[100], path_j[100];
+////S : start,출발점 E: End, 도착점, idx 경로 배열 인텍스
+////Path_i, Path_j : 지나간 길을 저장함(i는 행, j는 열)
+//int visit(int, int);
+//int main() {
+//	int top = 0; //stack의 top 변수를 0으로 초기화
+//	success = 0;//미로 탈출 여부
+//	printf("===미로 탈출 경로 찾기 게임===\n");
+//	Si = 1, Sj = 1; //출발점 m배열의 1행 1열 위치
+//	Ei = 7, Ej = 7; //도착점 m배열의 7행 7열 위치
+//	if (visit(Si, Sj) == 0)
+//		printf("미로의 출구를 찾을 수 없음\n");
+//	else
+//		printf("미로의 모든 경로를 찾았음\n");
+//	return 0;
+//}
+//int visit(int i, int j) {
+//	static int path = 1;//찾은 경로의 수
+//	m[i][j] = 1;//배열에 0이 있다면 아직 가지 않은 길이란 의미
+//	//지나간 길에는 1을 저장해 둔다.
+//
+//}
+//
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//int m[9][9] = { //maze, 미로를 나타내는 배열
+//			 {2,2,2,2,2,2,2,2,2},//2는 미로의 벽
+//			 {2,0,0,0,0,0,0,0,2},//0은 갈수 있는 길
+//			 {2,0,2,0,2,2,2,0,2},
+//			 {2,0,2,0,0,2,0,0,2},
+//			 {2,0,2,0,2,0,2,0,2},
+//			 {2,0,0,0,0,0,2,0,2},
+//			 {2,2,0,2,2,0,2,2,2},
+//			 {2,0,0,0,0,0,0,0,2},
+//			 {2,2,2,2,2,2,2,2,2} };
