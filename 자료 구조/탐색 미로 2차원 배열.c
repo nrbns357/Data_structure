@@ -463,28 +463,29 @@
 //}
 
 
-int main() {
-	int input[3] = { 0, };
-	int sum = 0;
-	scanf("%d %d %d", &input[0], &input[1], &input[2]);
+//int main() {
+//	int input[3] = { 0, };
+//	int sum = 0;
+//	scanf("%d %d %d", &input[0], &input[1], &input[2]);
+//
+//	for (int i = 0; i < 3; i++) {
+//		if (input[0] > input[1]) {
+//			sum = input[0]; 
+//			input[0] = input[1]; 
+//			input[1] = sum; 
+//		}
+//		else if (input[1] > input[2]) {
+//			sum = input[1];
+//			input[1] = input[2];
+//			input[2] = sum;
+//		}
+//		else if(input[0] > input[2]){
+//			sum = input[0];
+//			input[0] = input[2];
+//			input[2] = sum;
+//		}
+//	}
+//	printf("%d %d %d", input[0], input[1], input[2]);
+//	return 0;
+//}
 
-	for (int i = 0; i < 3; i++) {
-		if (input[0] > input[1]) {
-			sum = input[0]; 
-			input[0] = input[1]; 
-			input[1] = sum; 
-		}
-		else if (input[1] > input[2]) {
-			sum = input[1];
-			input[1] = input[2];
-			input[2] = sum;
-		}
-		else if(input[0] > input[2]){
-			sum = input[0];
-			input[0] = input[2];
-			input[2] = sum;
-		}
-	}
-	printf("%d %d %d", input[0], input[1], input[2]);
-	return 0;
-}

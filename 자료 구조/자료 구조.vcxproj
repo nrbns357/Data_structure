@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="수행평가.c" />
     <ClCompile Include="탐색 미로 2차원 배열.c" />
     <ClCompile Include="연결리스트.c" />
     <ClCompile Include="연결리스트.h" />

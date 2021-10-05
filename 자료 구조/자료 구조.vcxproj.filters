@@ -33,5 +33,8 @@
     <ClCompile Include="파스칼의 삼각형.c">
       <Filter>헤더 파일</Filter>
     </ClCompile>
+    <ClCompile Include="수행평가.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
