@@ -489,3 +489,23 @@
 //	return 0;
 //}
 
+//int main() {
+//	int N, M;
+//	scanf("%d", &N);
+//	int num[100000] = { 0, };
+//	int mun[100000] = { 0, };
+//	for (int i = 0; i < N; i++)
+//	{
+//		num[i] = i;
+//		printf("%d ", i + 1);
+//	}
+//	printf("\n");
+//	scanf("%d", &M);
+//	for (int j = 0; j < M; j++)
+//	{
+//		mun[j] = j;
+//	}
+//	for (int k = 0; k < M; k++)
+//	{
+//	}
+//}

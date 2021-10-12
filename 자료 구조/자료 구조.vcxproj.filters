@@ -36,5 +36,8 @@
     <ClCompile Include="수행평가.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="퀵 정렬 구현.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
