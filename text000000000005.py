@@ -48,6 +48,33 @@
 # print(d)
 # print('------------')
 
-nation={'한국':'서울', '중국':'북경', '일본':'동경'}
-n=input('나라 이름 입력 : ')
-print(nation[n])
+# nation={'한국':'서울', '중국':'북경', '일본':'동경'}
+# n=input('나라 이름 입력 : ')
+# print(nation[n])
+
+# from collections import deque
+# queue=deque()
+# queue.append(1)
+# queue.append(2)
+# queue.append(3)
+# print(queue)
+# print(queue.popleft())
+# print(queue.popleft())
+# print(queue.popleft())
+# print(queue)
+def main():
+    n = int(input())
+    if n == 0:
+        print(1)
+    else:
+        a = solution(n)
+        print(a)
+
+
+def solution(n):
+    if n == 1:
+        return 1
+    else:
+        return n*solution(n-1)
+
+main()
